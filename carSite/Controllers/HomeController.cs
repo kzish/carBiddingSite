@@ -19,12 +19,14 @@ namespace carSite.Controllers
         [Route("Index")]
         public IActionResult Index()
         {
+            ViewBag.cars = Cars.cars;
             return View();
         }
 
         [Route("Advert")]
-        public IActionResult Advert()
+        public IActionResult Advert(int id)
         {
+            ViewBag.car = Cars.cars[id];
             return View();
         }
 

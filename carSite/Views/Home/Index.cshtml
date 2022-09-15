@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    var cars = (List<CarsModel>)ViewBag.cars;
+}
 <section class="list-filter">
     <div class="container-fluid">
         <div class="accordion" id="accordionExample">
@@ -82,240 +84,47 @@
 <section class="auction-slide auction-itemlist">
     <div class="container-fluid">
         <div class="row">
+            @{
+                var index = 0;
+            }
+            @foreach (var car in cars)
+            {
 
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car1.jpg" title="" alt="Disney World, 2 4-Day Tickets."></a>
+                <div class="col-md-4 col-lg-3">
+                    <div class="auction-prodt">
+                        <div class="auction-imgbox">
+                            <a style="background: none;" href="~/Advert?id=@index"><img src="~/assets/images/car_images/@(car.images[0])" title=""></a>
+                        </div>
+                        <h4 class="text-center">
+                            @car.title
+                        </h4>
+                        <h3 class="text-center">R@(car.price) <span>Start price </span></h3>
+                        <a href="~/Advert?id=@index">Details</a>
+                        <h5 id="demo">
+                            <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-02 17:04:04" data-edate="2022-09-09 17:04:04" style="width: 100%;" data-endtime="5h 37m 3s "><span><strong>0 </strong>d <strong>4 </strong>h <strong>15 </strong>m <strong>55 </strong>s</span></div>
+                        </h5>
+
+                        <span id="premium_success">
+                            <button id="button-14" style="font-size: 1.2rem;
+                                                    padding: 0.2rem 0.4rem 0.06rem;
+                                                    color: #777;
+                                                    border-radius: 22%;
+                                                    background-color: #fff;
+                                                    border: 1px solid #777;" data-action="add" data-id="14" class="watch-home">
+                                <i class="fa fa-heart-o" style="color: black;font-size: 20px;"></i>
+                            </button>
+                        </span>
+
+                        <div class="clearfix"></div>
                     </div>
-                    <h4 class="text-center">
-                        Disney World, 2 4-Day Tickets.
-                    </h4>
-                    <h3 class="text-center">$99.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-02 17:04:04" data-edate="2022-09-09 17:04:04" style="width: 100%;" data-endtime="5h 37m 3s "><span><strong>0 </strong>d <strong>4 </strong>h <strong>15 </strong>m <strong>55 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-14" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="14" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
                 </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car2.jpg" title="" alt="Vacation to Gran Canaria"></a>
-                    </div>
-                    <h4 class="text-center">
-                        Vacation to Gran Canaria
-                    </h4>
-                    <h3 class="text-center">$299.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-03 14:37:04" data-edate="2022-09-10 14:37:04" style="width: 100%;" data-endtime="1d 3h 10m 3s "><span><strong>1 </strong>d <strong>1 </strong>h <strong>48 </strong>m <strong>55 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-16" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="16" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car3.jpg" title="" alt="Trip to Miami"></a>
-                    </div>
-                    <h4 class="text-center">
-                        Trip to Miami
-                    </h4>
-                    <h3 class="text-center">$199.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-03 14:46:05" data-edate="2022-09-10 14:46:05" style="width: 100%;" data-endtime="1d 3h 19m 4s "><span><strong>1 </strong>d <strong>1 </strong>h <strong>57 </strong>m <strong>56 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-26" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="26" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car4.jpg" title="" alt="Grand Canyon Hiking Tour for 2"></a>
-                    </div>
-                    <h4 class="text-center">
-                        Grand Canyon Hiking Tour for 2
-                    </h4>
-                    <h3 class="text-center">$199.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-03 14:49:04" data-edate="2022-09-10 14:49:04" style="width: 100%;" data-endtime="1d 3h 22m 3s "><span><strong>1 </strong>d <strong>2 </strong>h <strong>00 </strong>m <strong>55 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-27" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="27" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car5.jpg" title="" alt="Visit Amsterdam"></a>
-                    </div>
-                    <h4 class="text-center">
-                        Visit Amsterdam
-                    </h4>
-                    <h3 class="text-center">$49.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-03 14:49:05" data-edate="2022-09-10 14:49:05" style="width: 100%;" data-endtime="1d 3h 22m 4s "><span><strong>1 </strong>d <strong>2 </strong>h <strong>00 </strong>m <strong>56 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-29" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="29" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car6.jpg" title="" alt="City trip: beautiful Rome"></a>
-                    </div>
-                    <h4 class="text-center">
-                        City trip: beautiful Rome
-                    </h4>
-                    <h3 class="text-center">$99.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-03 14:49:05" data-edate="2022-09-10 14:49:05" style="width: 100%;" data-endtime="1d 3h 22m 4s "><span><strong>1 </strong>d <strong>2 </strong>h <strong>01 </strong>m <strong>00 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-30" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="30" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car7.jpg" title="" alt="Enjoy Ibiza"></a>
-                    </div>
-                    <h4 class="text-center">
-                        Enjoy Ibiza
-                    </h4>
-                    <h3 class="text-center">$99.00 <span>Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">
-                        <div class="auction-time text-center atimer other is-countdown" id="atimer" data-cdate="2022-09-09 11:27:01" data-sdate="2022-09-07 19:40:05" data-edate="2022-09-14 19:40:05" style="width: 100%;" data-endtime="5d 8h 13m 4s "><span><strong>5 </strong>d <strong>6 </strong>h <strong>52 </strong>m <strong>00 </strong>s</span></div>
-                    </h5>
-
-                    <span id="premium_success">
-                        <button id="button-8" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="8" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="auction-prodt">
-                    <div class="auction-imgbox">
-                        <a style="background: none;" href="~/Advert"><img src="~/assets/images/car8.jpg" title="" alt="Yellowstone National Park tour"></a>
-                    </div>
-                    <h4 class="text-center">
-                        Yellowstone National Park tour
-                    </h4>
-                    <h3 class="text-center">$199.00 <span style="visibility:hidden">Start price </span></h3>
-                    <a href="~/Advert">Details</a>
-
-                    <h5 id="demo">Fixed Price</h5>
-
-                    <span id="premium_success">
-                        <button id="button-28" style="font-size: 1.2rem;
-    padding: 0.2rem 0.4rem 0.06rem;
-    color: #777;
-    border-radius: 22%;
-    background-color: #fff;
-    border: 1px solid #777;" data-action="add" data-id="28" class="watch-home">
-                            <i class="fa fa-heart-o" style="    color: black;font-size: 20px;"></i>
-                        </button>
-                    </span>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
+                {
+                    index++;
+                }
+            }
         </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination  justify-content-center"><li class="page-item"><span class="page-link">1</span></li></ul>
-        </nav>
+        @*<nav aria-label="Page navigation example">
+        <ul class="pagination  justify-content-center"><li class="page-item"><span class="page-link">1</span></li></ul>
+        </nav>*@
     </div>
 </section>
